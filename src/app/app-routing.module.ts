@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {LoginComponent} from "./login/login.component";
 
 /**
  * The `routes` variable is an array of Route objects.
@@ -7,7 +8,13 @@ import { RouterModule, Routes } from '@angular/router';
  *
  * @type {Array<Route>}
  */
-const routes: Routes = [];
+
+// Define some routes as an example
+export const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  // Other specific routes here
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' } // Redirect to welcome or another route
+];
 
 /**
  * NgModule representing the application routing configuration.

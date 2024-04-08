@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'; // Make sure FormsModule is import
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { routes } from './app-routing.module'; // Import routes
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component'; // Make sure LoginComponent is imported
@@ -12,12 +13,7 @@ export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
 
-// Define some routes as an example
-const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  // Other specific routes here
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' } // Redirect to welcome or another route
-];
+
 
 
 @NgModule({
@@ -29,7 +25,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule, // Add FormsModule here
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(routes),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
